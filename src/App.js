@@ -1,13 +1,13 @@
 import './App.css';
 
 import Header from './UI/Header';
-import PokemonList from './components/PokemonList';
+import Pokedex from './components/Pokedex';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <PokemonList/>
+      <Pokedex/>
     </div>
   );
 }

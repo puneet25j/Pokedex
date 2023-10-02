@@ -1,51 +1,63 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 import classes from './PokemonList.module.css';
 import Pokemon from './Pokemon';
+import Button from '../UI/Button';
 
 function PokemonList() {
-  const [loadPoke, setLoadPoke] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
   const [pokeResult, setPokeResult] = useState([]);
+  const [nextUrl, setNextUrl] = useState(
+    'https://pokeapi.co/api/v2/pokemon?limit=151'
+  );
 
-  const getPokemons = async () => {
-    const response = await fetch(loadPoke);
+  const fetchPokemons = async () => {
+    const response = await fetch(nextUrl);
     const data = await response.json();
-    setLoadPoke(data.next);
+    setNextUrl(data.next);
 
-    function createPokemonObject(result) {
-      result.forEach(async (pokemon) => {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
-        );
-        const data = await response.json();
-        setPokeResult((prev) => [...prev, data]);
-      });
-    }
+    const pokemonData = await Promise.all(
+      data.results.map(async (pokemon) => {
+        const res = await fetch(pokemon.url);
+        const data = await res.json();
+        return data;
+      })
+    );
 
-    createPokemonObject(data.results);
-    await console.log(pokeResult);
+    let pokemonObjects = pokemonData.map((pokemon) => {
+      return {
+        id: pokemon.id,
+        name: pokemon.name,
+        image: pokemon.sprites.other['official-artwork'].front_default,
+        types: pokemon.types,
+      };
+    });
+
+    console.log(pokemonObjects);
+    setPokeResult(prevState => [...prevState,...pokemonObjects]);
   };
 
   useEffect(() => {
-    getPokemons();
+    fetchPokemons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className={classes.container}>
-      {pokeResult.map((pokemon,index) => (
-        <Pokemon
-          key={index}
-          id={pokemon.id}
-          name={pokemon.name}
-          image={pokemon.sprites.other.dream_world.front_default}
-          type={pokemon.types[0].type.name}
-        />
-      ))}
-
-      <button className="load-more" onClick={() => getPokemons()}>
-        More Pokemons
-      </button>
-    </div>
+    <Fragment>
+      <div className={classes.list}>
+        {pokeResult.map((pokemon) => (
+          <Pokemon
+            key={pokemon.id}
+            id={pokemon.id}
+            name={pokemon.name}
+            image={pokemon.image}
+            types={pokemon.types}
+          />
+        ))}
+      </div>
+      <Button onClick={fetchPokemons} className={classes.loadBtn}>
+        Load More Pokémon
+      </Button>
+    </Fragment>
   );
 }
 

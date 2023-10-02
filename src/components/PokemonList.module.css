@@ -1,6 +1,11 @@
-.container {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Flex:opsz@8..144&display=swap');
+
+.list {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+
