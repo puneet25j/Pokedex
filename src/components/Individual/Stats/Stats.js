@@ -4,7 +4,7 @@ import classes from './Stats.module.css';
 
 function Stats(props) {
   return (
-    <div className={classes.chart}>
+    <div className="charts">
       {props.stats.map((element) => (
         <StatBar
           key={element.stat.name}

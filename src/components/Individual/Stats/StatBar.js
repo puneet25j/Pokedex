@@ -1,4 +1,4 @@
-import classes from './StatBar.module.css';
+import classes from './StatBar.module.scss';
 
 const max = [
   { stat: 'hp', maxValue: 255 },
@@ -18,10 +18,10 @@ function StatBar(props) {
 
   return (
     <div className={classes.bar}>
-      <div className={classes.inner}>
-        <div className={classes.fill} style={{ height: barFillHeight }}></div>
-      </div>
       <div className={classes.label}>{props.label}</div>
+      <div className={classes.inner}>
+        <div className={classes.fill} style={{ width: barFillHeight }}></div>
+      </div>
     </div>
   );
 }

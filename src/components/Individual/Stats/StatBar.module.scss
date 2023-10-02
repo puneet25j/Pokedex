@@ -1,0 +1,51 @@
+@import 'src/styles/mixin';
+
+.bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0.25rem;
+  margin-bottom: 1rem;
+  @include device-less-than('sm') {
+    width: 100%;
+  }
+}
+
+.inner {
+  height: 20px;
+  width: 200px;
+  border: 1px solid #313131;
+  border-radius: 12px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include device-less-than('sm') {
+    margin-left: auto;
+        width: 12rem;
+        min-width: 12rem;
+
+
+  }
+}
+
+.fill {
+  background-color: #30a7d7;
+  height: 100%;
+  transition: all 0.3s ease-out;
+    @include device-less-than('sm') {
+  }
+}
+
+.label {
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+  text-align: left;
+  min-width: 6rem;
+  color: black;
+  @include device-less-than('sm') {
+    min-width: initial;
+  }
+}

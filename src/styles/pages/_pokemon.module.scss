@@ -1,0 +1,121 @@
+@import '../mixin';
+
+:global {
+  .pokemon-page {
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      a {
+        padding: 0.25rem;
+        color: inherit;
+        font-size: 2rem;
+        text-decoration: none;
+        display: inline-flex;
+        div {
+          display: inline-block;
+        }
+        &::after,
+        &::before {
+          font-size: 50%;
+          align-self: center;
+        }
+        &:first-of-type {
+          &::before {
+            margin-right: 0.2rem;
+            content: '◀️';
+          }
+        }
+        &:last-of-type {
+          &::after {
+            content: '▶️';
+            margin-left: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .card {
+      background: var(--bg-2);
+      border-radius: var(--br-1);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      margin: .25rem 0;
+    }
+    .name {
+      display: block;
+      width: 100%;
+      text-align: left;
+      span {
+        display: inline-block;
+      }
+    }
+
+    $image-size: 40%;
+    .img-container {
+      flex-basis: $image-size;
+      @include device-less-than('sm') {
+        flex-basis: 100%;
+      }
+      width: 20rem;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .details-container {
+      flex-basis: 100 - $image-size;
+      text-align: left;
+      font-size: 1.25rem;
+       @include device-less-than('sm') {
+        flex-basis: 100%;
+      }
+      > * {
+        margin-bottom: .25rem;
+      }
+
+      .label {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    }
+    .charts {
+      width: 100%;
+      padding: 1rem;
+      border-radius: var(--br-1);
+      flex-wrap: wrap;
+      background-color: #a4a4a4;
+      text-align: center;
+      display: flex;
+    }
+  }
+}
+.main {
+  color: black;
+  width: 90vw;
+  margin: auto;
+}
+
+.detail_container {
+  width: 100%;
+}
+
+.types {
+  display: flex;
+
+  justify-content: flex-start;
+  color: #313131;
+}
+
+.type {
+  border-radius: 30px;
+  color: white;
+  font-size: 0.8rem;
+  max-width: 110px;
+  margin: 0px 1.5px 0 0;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  text-transform: capitalize;
+  font-size: 1rem;
+}

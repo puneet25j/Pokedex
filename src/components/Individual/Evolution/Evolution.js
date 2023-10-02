@@ -15,8 +15,10 @@ function Evolution(props) {
           </div>
         </div>
       </Link>
-      <div>{props.name}</div>
-      <div>#{String(props.id).padStart(4, '0')}</div>
+      <div>
+        {props.name}
+        <span>#{String(props.id).padStart(4, '0')}</span>
+      </div>
     </div>
   );
 }
