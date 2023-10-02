@@ -1,6 +1,7 @@
 @import 'src/styles/mixin';
 
 .container {
+  text-transform: capitalize;
   display: flex;
   border-radius: 5px;
   flex-direction: row;

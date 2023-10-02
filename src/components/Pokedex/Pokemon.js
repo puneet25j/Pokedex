@@ -6,7 +6,7 @@ function Pokemon({ id, name, image, types }) {
   return (
     <div className={classes.card}>
       <Link to={'/' + id} className={classes.link}>
-        <img src={image} alt={name} className={classes.image} loading="lazy" />
+        <img src={image} alt={name} className={classes.image} />
       </Link>
       <div className={classes.info}>
         <p>#{String(id).padStart(4, '0')}</p>
@@ -15,9 +15,9 @@ function Pokemon({ id, name, image, types }) {
           {types.map((type) => (
             <span
               key={type.type.name}
-              className={`${classes.type} ${
-                [`background-color-${type.type.name}`]
-              }`}
+              className={`${classes.type} ${[
+                `background-color-${type.type.name}`,
+              ]}`}
             >
               {type.type.name}
             </span>

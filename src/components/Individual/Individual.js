@@ -17,16 +17,16 @@ function Individual({ pokemon }) {
   return (
     <div className={`${classes.main} pokemon-page`}>
       <div className="links">
-        <Link to={'/' + (pokemon.id - 1)}>
-          {pokemon.id !== 1 && (
+        {pokemon.id !== 1 && (
+          <Link to={'/' + (pokemon.id - 1)} className="prev">
             <div>#{String(pokemon.id - 1).padStart(4, '0')}</div>
-          )}
-        </Link>
-        <Link to={'/' + (pokemon.id + 1)}>
-          {pokemon.id !== 1010 && (
+          </Link>
+        )}
+        {pokemon.id !== 1010 && (
+          <Link to={'/' + (pokemon.id + 1)} className="next">
             <div>#{String(pokemon.id + 1).padStart(4, '0')}</div>
-          )}
-        </Link>
+          </Link>
+        )}
       </div>
       <div className="card">
         <div className="name">

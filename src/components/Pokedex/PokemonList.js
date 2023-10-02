@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 import { useSelector } from 'react-redux';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import classes from './PokemonList.module.css';
 import Pokemon from './Pokemon';
@@ -10,17 +11,18 @@ function PokemonList() {
 
   return (
     <Fragment>
-      <div className={classes.list}>
+      <TransitionGroup component="div" className={classes.list}>
         {displayedPokemons.map((pokemon) => (
-          <Pokemon
-            key={pokemon.id}
-            id={pokemon.id}
-            name={pokemon.name}
-            image={pokemon.image.front_default}
-            types={pokemon.types}
-          />
+          <CSSTransition key={pokemon.id} classNames="fade" timeout={5000}>
+            <Pokemon
+              id={pokemon.id}
+              name={pokemon.name}
+              image={pokemon.image.front_default}
+              types={pokemon.types}
+            />
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
     </Fragment>
   );
 }
