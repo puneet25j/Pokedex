@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Flex:opsz@8..144&display=swap');
 
-*{
+
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,9 +14,102 @@ body {
   color: white;
   font-family: 'Roboto Flex', sans-serif;
   font-size: 16px;
-
+  text-align: center;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
 }
 
+.light-theme {
+ --text-color: black;
+}
+
+.background-color-normal {
+  border-color: #dcdcdc;
+  background-color: #a0a0a0;
+}
+
+.background-color-water {
+  border-color: #14b9ff;
+  background-color: #0094e5;
+}
+
+.background-color-fire {
+  border-color: #ff6900;
+  background-color: #ff3700;
+}
+
+.background-color-grass {
+  border-color: #b4f000;
+  background-color: #92bf19;
+}
+
+.background-color-electric {
+  border-color: #ffe100;
+  background-color: #e4b700;
+}
+
+.background-color-ice {
+  border-color: #14f5ff;
+  background-color: #00b7ee;
+}
+
+.background-color-fighting {
+  border-color: #dc6900;
+  background-color: #c85500;
+}
+
+.background-color-poison {
+  border-color: #d28cd2;
+  background-color: #be78be;
+}
+
+.background-color-ground {
+  border-color: #fac85a;
+  background-color: #cca142;
+}
+
+.background-color-flying {
+  border-color: #78dcff;
+  background-color: #79bcd7;
+}
+
+.background-color-psychic {
+  border-color: #f08cdc;
+  background-color: #dc78c8;
+}
+
+.background-color-bug {
+  border-color: #46c846;
+  background-color: #32b432;
+}
+
+.background-color-rock {
+  border-color: #b48c64;
+  background-color: #a07850;
+}
+
+.background-color-ghost {
+  border-color: #a08cff;
+  background-color: #8c78f0;
+}
+
+.background-color-dragon {
+  border-color: #5078dc;
+  background-color: #3c64c8;
+}
+
+.background-color-dark {
+  border-color: #787878;
+  background-color: #646464;
+}
+
+.background-color-steel {
+  border-color: #aac8f0;
+  background-color: #96b4dc;
+}
+
+.background-color-fairy {
+  border-color: #ffafdc;
+  background-color: #ff7eb8;
+}

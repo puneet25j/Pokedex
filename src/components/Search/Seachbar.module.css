@@ -1,13 +1,3 @@
-.filter{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.items{
-    margin: 1rem;
-}
-
 .search{
     display: inline-flex;
     align-items: center;
@@ -28,6 +18,11 @@
     font-size: 16px;
 }
 
+.input:disabled{
+    cursor: not-allowed;
+    background-color: #cacaca;
+}
+
 .searchBtn{
     color: #fff;
     background-color: #ee6b2f;
@@ -38,15 +33,8 @@
     border-radius: 5px;
 }
 
-.sort{
-    background-color: black;
-    color: #fff;
-    padding: .5rem;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
+.searchBtn:disabled {
+    cursor: not-allowed;
+    background-color: #7c7c7c;
 }
 
-.sort-option{
-    background-color: #616161;
-}

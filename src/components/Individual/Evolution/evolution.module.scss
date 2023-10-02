@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png);
+  border-radius: 5px;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+  .arrow {
+    width: 3rem;
+    align-self: center;
+    min-width: 1rem;
+    svg {
+      width: 100%;
+      fill: white;
+    }
+  }
+  .evolution {
+    flex-basis: 20%;
+    min-width: 20%;
+    height: 100%;
+    flex-grow: 0;
+    .image-container {
+        border: 5px solid white;
+        padding: .5rem;
+        margin: .25rem .5rem;
+        background-color: #616161;
+        border-radius: 50%;
+        .image-wrapper {
+            margin: 1rem;
+        }
+        $min-w: 2rem;
+      img {
+        width: 100%;
+        height: auto;
+        min-width: $min-w; 
+        min-height: $min-w;
+      }
+    }
+  }
+}

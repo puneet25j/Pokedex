@@ -1,37 +1,50 @@
-import SearchIcon from '../../UI/SearchIcon';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
 
 import classes from './Seachbar.module.css';
 
-function Searchbar() {
+import SearchIcon from '../UI/SearchIcon';
+import { pokemonActions } from '../../store';
+
+
+function Searchbar(props) {
+  const dispatch = useDispatch();
+  const searchInputRef = useRef();
+
+  const keyDownHandler = (e) => {
+    if(e.key === 'Enter'){
+      searchHandler();
+    }
+  }
+
+  const searchHandler = ()=> {
+    const searchData = searchInputRef.current.value;
+    dispatch(pokemonActions.search(searchData));
+  }
+
   return (
-    <div className={classes.filter}>
-      <div className={classes.items}>
-        <label className={classes.label} htmlFor="search">
-          Name or Number
-        </label>
-        <div className={classes.search}>
-          <input className={classes.input} type="text" id="search" />
-          <button className={classes.searchBtn} type="submit">
-            <SearchIcon />
-          </button>
-        </div>
-      </div>
-      <div className={classes.items}>
-        <label className={classes.label} htmlFor="sort">
-          Sort by
-        </label>
-        <select className={classes.sort} name="sort" id="sort">
-          <option className={classes['sort-option']} value="lowest">
-            Lowest Number(First)
-          </option>
-          <option className={classes['sort-option']} value="highest">
-            Highest Number(First)
-          </option>
-          <option className={classes['sort-option']} value="a-z">
-            A-Z
-          </option>
-          <option className={classes['sort-option']}value="z-a">Z-A</option>
-        </select>
+    <div>
+      <label className={classes.label} htmlFor="search">
+        Name or Number
+      </label>
+      <div className={classes.search}>
+        <input
+          className={classes.input}
+          type="text"
+          id="search"
+          ref={searchInputRef}
+          disabled={props.disabled}
+          onKeyDown={keyDownHandler}
+        />
+        <button
+          className={classes.searchBtn}
+          type="button"
+          disabled={props.disabled}
+          onClick={searchHandler}
+        >
+          <SearchIcon />
+        </button>
       </div>
     </div>
   );

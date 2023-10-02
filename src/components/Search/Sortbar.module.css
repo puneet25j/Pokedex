@@ -1,0 +1,24 @@
+.label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.sort {
+    background-color: black;
+    position: relative;
+    color: #fff;
+    padding: .5rem;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.sort:disabled {
+    color: #7c7c7c;
+    cursor: no-drop;
+}
+
+.sort-option {
+    background-color: #616161;
+}
