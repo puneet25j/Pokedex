@@ -58,9 +58,8 @@
       @include device-less-than('sm') {
         flex-basis: 100%;
       }
-      width: 20rem;
       img {
-        width: 100%;
+       width: 15rem;
         height: auto;
       }
     }
